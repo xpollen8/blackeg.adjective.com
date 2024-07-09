@@ -1,0 +1,220 @@
+#define	eg_background
+	<body bgcolor="#ffffff">
+	<center>
+	<a href="${eg_root}"><img border=0
+		src="${eg_images}/bigblackeg.gif" width=516 height=84></a>
+	</center>
+
+#define	index.html
+	<head>
+	<title>The Black Eg Home Page</title>
+	</head>
+	${eg_background}
+	<!-- 1222 : Fri Jan 24 12:37:28 PST 1997 -->
+
+	<center>
+	<table border=0 cellspacing=30>
+	<tr>
+	<td>
+	<img height=224 width=181 alt="[a pretty picture]"
+		src="${eg_images}/flag.gif">
+	</td>
+	<td align=center valign=top>
+
+		<img src="${eg_images}/eg.gif" width=73 height=87>
+		<p>
+		<b>
+		<a href="${eg_root}/eg_news.html">News</a>
+		<p>
+		<a href="${eg_root}/eg_audio.html">Audio</a>
+		<p>
+		<a href="${eg_root}/eg_art.html">Artwork</a>
+		<p>
+		<a href="${jbc_albums}/blackeg.html">Album</a>
+		</b>
+	</td>
+	<td align=right>
+	<a href="${eg_images}/egdebut.jpg">
+	<img height=100 width=149 alt="[a pretty picture]"
+		border=1 src="${eg_images}/segdebut.gif"></a>
+	<p>Photo from debut performance,
+	<br>1 June 1994
+	<br>
+	<a href="${jbc_gigs}/1994/Jun1.html"><b>The Soundshaft</b></a>,
+	<br>London.
+	</td>
+	</tr>
+	</table>
+	</center>
+
+	${footer}
+
+#define	eg_news.html
+	<head>
+	<title>Upcoming Black Eg gigs</title>
+	</head>
+	${eg_background}
+	<center>
+	<img src="${eg_images}/eg.gif" width=73 height=87><p>
+	<b>News</b>
+	</center>
+	<hr width=100>
+
+	[1994]
+	<blockquote>
+	   Have succeeded in booking Strangelove for the second annual
+	"It's Got To Be Belgium" festival here - at a price of... NOTHING!
+	Ha!Ha!Ha!  It will be their first gig after the l.p. comes out.
+	Also lined up for the fest are Curt's mob,
+	"Stranger Tractors", Spittle Rattle, Transambient Communications and,
+	coup of coups!, a band from Vienna called The Black Eg.
+	<p>
+	This is all across <a href="${jbc_gigs}/1994/Aug6.html">8th-10th
+	August in the garden at Belgium.</a>
+	[<b>Slurp's Wino Bar</b>, Northampton, England].
+	The Eg are also playing a rave in London on 22nd July at The Fortress,
+	King's Cross, and they have been invited to Ibiza too!  Vibornye!
+	</blockquote>
+
+	${footer}
+
+#define	makeMP3Icon(title)
+	<img height="9" width="19" alt="[listen to ${title}]" border="0" src="http://jazzbutcher.com/images/iconMP3.gif" hspace="2">
+#define	linkAudio(title, mp3)
+	<a href="${mp3}">${makeMP3Icon(title=${literalizeCommas(${title})})}</a>
+#define	linkSong(title, href, audio, mp3, author)
+#live	if ((defined(mp3)) && (defined(href)))
+	${linkAudio(title=${title}, mp3=${mp3})}<a href="${href}"><i>${title}</i></a>
+#live	else if ((defined(mp3))) && (defined(title)))
+	${linkAudio(title=${title}, mp3=${mp3})}<i>${title}</i>
+#live	else if (defined(href))
+	<a href="${href}"><i>${title}</i></a>
+#live	else
+	<i>${title}</i>
+#live	endif
+#live	if (defined(author))
+	<font size=1>(${author})</font>
+#live	endif
+
+
+#define	eg_audio.html
+	<title>Black Eg: Some Audio Snippets</title>
+	</head>
+	${eg_background}
+	<center>
+	<img src="${eg_images}/eg.gif" width=73 height=87><p>
+	<b>Audio</b>
+	</center>
+	<hr width=100>
+	<ul>
+	<li>${linkSong(title=Excerpts from, mp3=${eg_audio}/blackeg.mp3)}
+	the Black Eg Interview
+	1:20 (320k)</li>
+	<blockquote>
+	<table border=0 cellspacing=10>
+	<tr>
+	<td>
+	<a href="${del_galpix}/joe.jpg"><iMG height=102 width=82
+	alt="[a pretty picture]"
+	SRC="${del_galpix}/thumb/100/joe.jpg"></a>
+	</td>
+	<td>
+	<a href="${jbc_people}/von_dammerung.html">Karel
+	and Otto Von D&auml;mmerung</a> interviewed in Chicago
+	<a href="${jbc_gigs}/1992/Jun26.html">26Jun92 at WHPK</a>
+	by &quot;Roadkill Joe&quot;
+	</td>
+	</tr>
+	</table>
+	</blockquote>
+	<li>${linkSong(title=Offensive phrases, mp3=${eg_audio}/yhet.mp3)}
+	the native Czech tongue.
+	0:20 (50k)</li>
+	<blockquote>
+	Only <b>two</b> days after
+	<a href="${jbc_gigs}/1994/Jun1.html">their
+	live debut</a>, the efforts
+	of the brothers Von D&auml;mmerung to infect the English
+	language begin to pay off.  This was recorded at
+	<a href="${jbc_gigs}/1994/Jun4.html"><b>The Royal
+	Albert Hall</b>
+	on 4 June 1994</a>.
+	</blockquote>
+
+
+	<li>"<i>l'esprit formidable</i>"</li>
+	<blockquote>
+	${linkSong(title=After Vietnam, mp3=${eg_audio}/l_esprit_formidable/1_AfterVietnam.mp3)}<br>
+	${linkSong(title=Drugs Rumble #1, mp3=${eg_audio}/l_esprit_formidable/2_DrugsRumble1.mp3)}<br>
+	${linkSong(title=Bel Air, mp3=${eg_audio}/l_esprit_formidable/3_BelAir.mp3)}<br>
+	${linkSong(title=Mogadon, mp3=${eg_audio}/l_esprit_formidable/4_Mogadon.mp3)}<br>
+	${linkSong(title=Lulu's Dog, mp3=${eg_audio}/l_esprit_formidable/5_LulusDog.mp3)}<br>
+	${linkSong(title=No Answer (In Cambodia), mp3=${eg_audio}/l_esprit_formidable/6_NoAnswer.mp3)}<br>
+	${linkSong(title=I Will Survive, mp3=${eg_audio}/l_esprit_formidable/7_IWillSurvive.mp3)}<br>
+	${linkSong(title=Sexual Taboos, mp3=${eg_audio}/l_esprit_formidable/8_SexualTaboos.mp3)}<br>
+	${linkSong(title=La Rage\, Le Sarcasme Et La Betise Humaine, mp3=${eg_audio}/l_esprit_formidable/9_LaRage.mp3)}<br>
+	${linkSong(title=After Vietnam (ambient mix), mp3=${eg_audio}/l_esprit_formidable/10_AfterVietnam_ambient_mix.mp3)}<br>
+	${linkSong(title=Tonight\, You Belong To Me, mp3=${eg_audio}/l_esprit_formidable/11_TonightYouBelongToMe.mp3)}
+	<p>
+	As received 20Aug1993
+	</blockquote>
+	<br clear=all>
+	<li>"<i>Peter Murphy</i>"</li>
+	<blockquote>
+	${linkSong(title=Do Ya Wanna?, mp3=${eg_audio}/peter_murphy/1_DoYaWanna.mp3)}<br>
+	${linkSong(title=Filth, mp3=${eg_audio}/peter_murphy/2_Filth.mp3)}<br>
+	${linkSong(title=Coney Island Nightmare, mp3=${eg_audio}/peter_murphy/3_ConeyIslandNightmare.mp3)}<br>
+	${linkSong(title=Ezcsta, mp3=${eg_audio}/peter_murphy/4_Ezcsta.mp3)}<br>
+	${linkSong(title=L.A. Stories (gameboy mix), mp3=${eg_audio}/peter_murphy/5_LAStories_gameboy_mix.mp3)}<br>
+	${linkSong(title=Hypnotic Eye, mp3=${eg_audio}/peter_murphy/6_HypnoticEye.mp3)}<br>
+	${linkSong(title=L.A. Stories (metal mix), mp3=${eg_audio}/peter_murphy/7_LAStories_metal_mix.mp3)}
+	<p>
+	As received 15Sep1992
+	</blockquote>
+	</blockquote>
+		<li>${linkSong(title=Live Debut!, mp3=${eg_audio}/1994Jun1.mp3)} (mp3: 67Meg)</li>
+		<blockquote>
+		<a href="${jbc_gigs}/1994/Jun1.html">1Jun1994 - Soundshaft, London</a>
+		<p>
+		Includes: <i>Tribute To Asian Youth</i>, <i>Mitropa Express</i>, and <i>Indianapolis 500 Go!</i>
+		<p>
+		Recorded by <a href="http://davidwhittemore.com">David Whittemore</a>.
+		</blockquote>
+	</ul>
+	${footer}
+
+#define	eg_art.html
+	<title>Black Eg: Artwork</title>
+	</head>
+	${eg_background}
+	<center>
+	<img src="${eg_images}/eg.gif" width=73 height=87><p>
+	<b>Artwork</b>
+	<hr width=100>
+	<table border=0 cellspacing=20>
+	<tr>
+	<td>
+	<a href="${eg_images}/pmurphy.jpg">
+	<img width=201 height=223 align=middle
+	alt="[image]" src="${eg_images}/spmurphy.gif"></a>
+	</td>
+	<td>
+	<a href="${eg_images}/eg.gif">Happy Eg(g)</a>
+	<p>
+	<a href="${eg_images}/flag_bw.gif">Tutto Possibile Flag</a>
+	and
+	<a href="${eg_images}/flag.gif">In Color</a>
+	<p>
+	<a href="${eg_images}/blackeg.gif">"The Black Eg"</a>
+	and
+	<a href="${eg_images}/bigblackeg.gif">bigger</a>
+	<p>
+	<a href="${eg_images}/pmurphy.gif">Color Flag &amp; Eg</a>
+	<p>
+	<a href="${eg_images}/das.gif">Homebrew Black Eg Logo</a>
+	</td>
+	</tr>
+	</table>
+	</center>
+
+	${footer}
