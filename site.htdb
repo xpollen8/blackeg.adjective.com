@@ -79,7 +79,7 @@
 	${footer}
 
 #define	makeMP3Icon(title)
-	<img height="9" width="19" alt="[listen to ${title}]" border="0" src="http://jazzbutcher.com/images/iconMP3.gif" hspace="2">
+	<img height="9" width="19" alt="[listen to ${title}]" border="0" src="https://jazzbutcher.com/images/iconMP3.gif" hspace="2">
 #define	linkAudio(title, mp3)
 	<a href="${mp3}">${makeMP3Icon(title=${literalizeCommas(${title})})}</a>
 #define	linkSong(title, href, audio, mp3, author)
@@ -178,7 +178,7 @@
 		<p>
 		Includes: <i>Tribute To Asian Youth</i>, <i>Mitropa Express</i>, and <i>Indianapolis 500 Go!</i>
 		<p>
-		Recorded by <a href="http://davidwhittemore.com">David Whittemore</a>.
+		Recorded by <a href="https://davidwhittemore.com">David Whittemore</a>.
 		</blockquote>
 	</ul>
 	${footer}
